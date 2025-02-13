@@ -26,6 +26,13 @@
 
 {% block extra_js %}
 <script>
+
+// $.ajaxSetup({
+//     headers: {
+//         'X-CSRFToken': '{{ csrf_token }}'
+//     }
+// });
+
 $(document).ready(function() {
     $('#mailingForm').on('submit', function(e) {
         e.preventDefault();
@@ -46,3 +53,11 @@ $(document).ready(function() {
 });
 </script>
 {% endblock %}
+
+<html>
+<body>
+    <p>Hello {{ subscriber.first_name }} {{ subscriber.last_name }},</p>
+    <p>{{ mailing.html_template|safe }}</p>
+    <img src="http://localhost/track_open/{{ mailing.id }}/{{ subscriber.id }}/" alt="" style="display:none;">
+</body>
+</html>

@@ -12,7 +12,7 @@ def send_mailing(mailing_id):
             'subscriber': subscriber,
             'mailing': mailing,
         })
-        msg = EmailMultiAlternatives(mailing.subject, '', 'from@example.com', [subscriber.email])
+        msg = EmailMultiAlternatives(mailing.subject, '', 'kakoi-to-address@gmail.com', [subscriber.email])
         msg.attach_alternative(html_content, "text/html")
         msg.send()
     mailing.is_sent = True

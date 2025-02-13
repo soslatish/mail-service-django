@@ -17,3 +17,8 @@ class Mailing(models.Model):
 
     def __unicode__(self):
         return self.subject
+
+class OpenTracking(models.Model):
+    mailing = models.ForeignKey(Mailing, on_delete=models.CASCADE)
+    subscriber = models.ForeignKey(Subscriber, on_delete=models.CASCADE)
+    opened_at = models.DateTimeField(auto_now_add=True)
